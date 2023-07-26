@@ -7,7 +7,7 @@
  'author': 'Luis Andrés Valido Fajardo',
  'maintainer': 'Luis Andrés Valido Fajardo',
  'company': 'Luis Andrés Valido Fajardo',
- 'website': 'https://www.cybrosys.com',	
+ 'website': 'https://github.com/vasha54/customs_addons_odoo_12',	
  'depends': ['base'],
  'data': [
      'security/ir.model.access.csv',
