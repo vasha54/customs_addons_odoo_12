@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="physical_magnitude_menu_main" 
+            name="Physical Magnitude"/>
+        
+        <menuitem id="physical_magnitude_menu" 
+            parent="physical_magnitude_menu_main" 
+            name="Physical Magnitude"
+            action="physical_magnitude_menu_action"/>
+
+        <menuitem id="unit_measurement_menu" 
+            parent="physical_magnitude_menu_main" 
+            name="Unit measurement"
+            action="unit_measurement_menu_action"/>
+        
+        <menuitem id="conversion_unit_menu" 
+            parent="physical_magnitude_menu_main" 
+            name="Unit conversion"
+            action="unit_conversion_menu_action"/>
+    </data>
+</odoo>

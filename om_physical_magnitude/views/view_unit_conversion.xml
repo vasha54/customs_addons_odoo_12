@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+
+        <record id="unit_conversion_menu_action" model="ir.actions.act_window">   
+            <field name="name">Unit Conversion</field>
+            <field name="res_model">unit.conversion</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="unit_conversion_search_view"/> 
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create first the unit conversion</p>
+            </field>
+        </record>
+
+        <record id="unit_conversion_tree_view" model="ir.ui.view">
+            <field name="name">Unit conversion</field>
+            <field name="model">unit.conversion</field>
+            <field name="arch" type="xml">
+                <tree string="Unit conversion">
+                    <field name="unitA_id"/>
+                    <field name="unitB_id"/>
+                    <field name="conversion_one_A_to_B"/>
+                    <field name="conversion_one_B_to_A"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="unit_conversion_form_view" model="ir.ui.view">
+            <field name="name">Unit conversion form</field>
+            <field name="model">unit.conversion</field>
+            <field name="arch" type="xml">
+                <form string="Unit conversion">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="unitA_id"/>
+                                <field name="conversion_one_A_to_B"/>
+                            </group>
+                            <group>
+                            	<field name="unitB_id"/>
+                            	<field name="conversion_one_B_to_A"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

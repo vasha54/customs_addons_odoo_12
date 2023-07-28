@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+        <record id="unit_measurement_menu_action" model="ir.actions.act_window">   
+            <field name="name">Unit measurement</field>
+            <field name="res_model">unit.measurement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="unit_measurement_search_view"/>  
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create first the unit measurement</p>
+            </field>
+        </record>
+
+
+        <record id="unit_measurement_tree_view" model="ir.ui.view">
+            <field name="name">Unit Measurement Tree</field>
+            <field name="model">unit.measurement</field>
+            <field name="arch" type="xml">
+                <tree string="Unit measurement">
+                    <field name="name"/>
+                    <field name="acronym"/>
+                    <field name="main_magnitude"/>
+                    <field name="physical_magnitude_id"/>
+                </tree>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

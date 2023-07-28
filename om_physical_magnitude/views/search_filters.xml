@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="unit_measurement_search_view" model="ir.ui.view">   
+            <field name="name">Unit Measurement Search View</field>   
+            <field name="model">unit.measurement</field>   
+            <field name="arch" type="xml">       
+                <search string="Search Unit measurement">           
+                    <field name="name"/>           
+                    <field name="acronym"/>           
+                    <field name="physical_magnitude_id"/>
+                    <filter string="Main units" name="main_magnitude" domain="[('main_magnitude','=','True')]" 
+                            help="Principal units of physical magnitude"/>           
+                    <group expand="1" string="Group By">               
+                        <filter string="Physical magnitude" name="physical_magnitude_id" context="{'group_by':'physical_magnitude_id'}"/>               
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="unit_conversion_search_view" model="ir.ui.view">   
+            <field name="name">Unit Conversion Search View</field>   
+            <field name="model">unit.conversion</field>   
+            <field name="arch" type="xml">       
+                <search string="Search unit conversion">           
+                    <field name="unitA_id"/>           
+                    <field name="unitB_id"/>           
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

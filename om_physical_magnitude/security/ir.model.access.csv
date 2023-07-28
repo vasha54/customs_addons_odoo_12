@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_physical_magnitude,access.physical.magnitude,model_physical_magnitude,base.group_user,1,1,1,1
+access_unit_measurement,access.unit.measurement,model_unit_measurement,base.group_user,1,1,1,1
+access_unit_conversion,access.unit.conversion,model_unit_conversion,base.group_user,1,1,1,1
