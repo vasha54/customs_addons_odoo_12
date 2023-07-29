@@ -19,26 +19,25 @@ class UnitConversion(models.Model):
     def _compute_conversion(self):
         for rec in self.filtered('conversion_one_A_to_B'):
             rec.conversion_one_B_to_A = float(1.0000)/rec.conversion_one_A_to_B
+            
+    @api.constrains('unitA_id','unitB_id')
+    def check_existance_conversion(self):
+        combA = self.env['unit.conversion'].search([('id', '!=', self.id),
+                                                    ('unitA_id','=',self.unitA_id.id),
+                                                    ('unitB_id','=',self.unitB_id.id)])
+        combB = self.env['unit.conversion'].search([('id', '!=', self.id),
+                                                    ('unitB_id','=',self.unitA_id.id),
+                                                    ('unitA_id','=',self.unitB_id.id)])
+        if len(combA) > 0 or len(combB):
+            raise models.ValidationError('This conversion already exists')
+        
+        if self.unitA_id.physical_magnitude_id.id != self.unitB_id.physical_magnitude_id.id:
+            raise models.ValidationError('It is not possible to establish conversion between measurement units of different physical magnitudes')
+            
     
-    # def check_existance(self, cr, uid, ids, context=None):
-    #     self_obj = self.browse(cr, uid, ids[0], context=context)
-    #     field1 = self_obj.unitA_id
-    #     field2 = self_obj.unitB_id
-    #     search_idsA = self.search(cr, uid, [('unitA_id', '=', field1),('unitB_id', '=' , field2)], context=context)
-    #     search_idsB = self.search(cr, uid, [('unitB_id', '=', field1),('unitA_id', '=' , field2)], context=context)
-    #     res = True
-    #     if len(search_ids) > 1 or len(search_idsB) > 1:
-    #         res = False
-    #     return res
+    @api.constrains('conversion_one_A_to_B')
+    def check_value(self) :
+        if self.conversion_one_A_to_B == 0:
+            raise models.ValidationError('The value must be greater than zero.')
+        
     
-    # @api.multi
-    # def name(self):
-    #     result = []
-    #     for conversion in self:
-    #         unitA = conversion.unitA.mapped('name')
-    #         unitB = conversion.unitB.mapped('name')
-    #         name = '%s (%s)' % (unitA, ' - '.join(unitB))
-    #         result.append((conversion.id, name))
-    #     return result
-    
-    # _constraints = [(check_existance,'Unit conversion already exist', ['unitA_id','unitB_id'])]
