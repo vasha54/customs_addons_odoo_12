@@ -22,7 +22,10 @@
                     <sheet>
                         <group>
                             <field name="name"/>
-                        </group>                
+                        </group> 
+                        <group>
+                            <field name="icon" widget="image"/>
+                        </group>               
                     </sheet>
                 </form>
             </field>
@@ -33,34 +36,49 @@
             <field name="name">Physical magnitude kanban</field>
             <field name="model">physical.magnitude</field>
             <field name="arch" type="xml">
-                <kanban create="false" class="o_modules_kanban">
+                <kanban create="true" class="o_modules_kanban">
                   <field name="name"/>
                   <field name= "count_units"/>
                   <field name="name_main_unit"/>
+                  <field name="icon"/>
+                  <field name="id"/>
                   <templates>
                     <t t-name="kanban-box">
-                      <div class="oe_module_vignette">
-                        <div class="o_dropdown_kanban dropdown" tabindex="-1">
-                            <a class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" role="button" aria-label="Dropdown menu" title="Dropdown menu">
-                                <span class="fa fa-ellipsis-v"/>
-                            </a>
-                            <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                <a role="menuitem" class="dropdown-item" >Change main unit</a>
-                                <a role="menuitem" class="dropdown-item">View units</a>
-                                <a role="menuitem" class="dropdown-item">Add unit</a>
+                        <div class="oe_module_vignette">
+                            <div class="o_dropdown_kanban dropdown" tabindex="-1">
+                                <a class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" role="button" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <a type="edit" role="menuitem" class="dropdown-item" >Edit</a>
+                                    <a role="menuitem" class="dropdown-item" attrs="{'invisible':[('count_units', '=', 0)]}">Change main unit</a>
+                                    <a role="menuitem" class="dropdown-item" attrs="{'invisible':[('count_units', '=', 0)]}">View units</a>
+                                    <a role="menuitem" class="dropdown-item">Add unit</a>
+                                    <a type="delete" role="menuitem" class="dropdown-item" >Delete</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="o_kanban_image">
+                                        <img t-att-src="kanban_image('physical.magnitude','icon',record.id.raw_value)" alt="Icon"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="oe_module_desc" >
+                                        <h3 class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </h3>
+                                        <div class="oe_module_action">
+                                            <div  class="text-muted float-left">
+                                                Units: <field name="count_units"/>
+                                                <br/>
+                                                Main unit: <field name="name_main_unit"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="oe_module_desc" >
-                          <h4 class="o_kanban_record_title">
-                            <field name="name"/>
-                          </h4>
-                          
-                          <div class="oe_module_action">
-                            <div  class="text-muted float-left">Units: <field name="count_units"/></div>
-                            <div class="text-muted float-right">Main unit: <field name="name_main_unit"/></div>
-                          </div>
-                        </div>
-                      </div>
                     </t>
                   </templates>
                 </kanban>

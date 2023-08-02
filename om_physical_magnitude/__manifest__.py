@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Physical Magnitude',
-    'version': '12.0.0.0.2',
+    'version': '12.0.0.0.3',
     'summary': 'Manager Physical Magnitude easily',
     'description': """
     The following module allows the management of physical magnitudes as well as the measurement units associated with each of the magnitudes. Among the 
