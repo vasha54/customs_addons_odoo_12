@@ -9,7 +9,9 @@
             <field name="view_mode">kanban,form</field> 
             <field name="domain">[]</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Create first the physical magnitude</p>
+                <p class="oe_view_nocontent_create">
+                    Create first the physical magnitude
+                </p>
             </field>
         </record>
 
@@ -45,16 +47,37 @@
                   <templates>
                     <t t-name="kanban-box">
                         <div class="oe_module_vignette">
-                            <div class="o_dropdown_kanban dropdown" tabindex="-1">
-                                <a class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" data-display="static" href="#" role="button" aria-label="Dropdown menu" title="Dropdown menu">
+                            <div class="o_dropdown_kanban dropdown" 
+                                tabindex="-1">
+                                <a class="dropdown-toggle o-no-caret btn" 
+                                    data-toggle="dropdown" data-display="static"
+                                    href="#" role="button"
+                                    aria-label="Dropdown menu" 
+                                    title="Dropdown menu">
                                     <span class="fa fa-ellipsis-v"/>
                                 </a>
-                                <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                    <a type="edit" role="menuitem" class="dropdown-item" >Edit</a>
-                                    <a role="menuitem" class="dropdown-item" attrs="{'invisible':[('count_units', '=', 0)]}">Change main unit</a>
-                                    <a role="menuitem" class="dropdown-item" attrs="{'invisible':[('count_units', '=', 0)]}">View units</a>
-                                    <a role="menuitem" class="dropdown-item">Add unit</a>
-                                    <a type="delete" role="menuitem" class="dropdown-item" >Delete</a>
+                                <div class="dropdown-menu" role="menu" 
+                                    aria-labelledby="dLabel">
+                                    <a type="edit" role="menuitem" 
+                                    class="dropdown-item" >
+                                        Edit
+                                    </a>
+                                    <a role="menuitem" class="dropdown-item" 
+                                    attrs="{'invisible':[('count_units', '=', 0)]}">
+                                        Change main unit
+                                    </a>
+                                    <a role="menuitem" 
+                                    class="dropdown-item" 
+                                    attrs="{'invisible':[('count_units', '=', 0)]}">
+                                        View units
+                                    </a>
+                                    <a role="menuitem" class="dropdown-item">
+                                        Add unit
+                                    </a>
+                                    <a type="delete" role="menuitem" 
+                                    class="dropdown-item" >
+                                        Delete
+                                    </a>
                                 </div>
                             </div>
                             <div class="row">

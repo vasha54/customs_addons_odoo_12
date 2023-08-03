@@ -21,7 +21,7 @@
         'views/search_filters.xml',
         'views/views_magnitude.xml',
         'views/views_unit_measurement.xml',
-        'views/view_unit_conversion.xml',
+        'views/views_unit_conversion.xml',
         'views/menu.xml'
         ],
     'demo': [],
