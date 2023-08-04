@@ -68,10 +68,15 @@
                                     </a>
                                     <a role="menuitem" 
                                     class="dropdown-item" 
+                                    name="show_units_measurements"
+                                    type="object"
                                     attrs="{'invisible':[('count_units', '=', 0)]}">
                                         View units
                                     </a>
-                                    <a role="menuitem" class="dropdown-item">
+                                    <a role="menuitem" 
+                                    class="dropdown-item"
+                                    name="add_units_measurements"
+                                    type="object">
                                         Add unit
                                     </a>
                                     <a type="delete" role="menuitem" 

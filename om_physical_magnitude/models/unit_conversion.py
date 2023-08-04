@@ -116,7 +116,7 @@ class UnitConversion(models.Model):
             models.ValidationError: If the value is greater than zero it 
             throws an exception notifying the error
         """
-        if self.conversion_one_A_to_B =< 0:
+        if self.conversion_one_A_to_B <= 0:
             raise models.ValidationError('The value must be greater than zero.')
         
     

@@ -104,6 +104,43 @@ class PhysicalMagnitude(models.Model):
         if not self.icon:
             self.icon = self._get_default_icon_value()
         return res
+    
+    
+    @api.multi
+    def show_units_measurements(self):
+        """Method in charge of displaying a tree-type view that shows the 
+        measurement units associated with this physical magnitude.
+
+        Returns:
+            dict: Dictionary with the values to visualize the data
+        """
+        return {
+            'name': self.name+'\'s units of measurement',
+            'domain': [('physical_magnitude_id', '=', self.id)],
+            'view_type': 'form',
+            'res_model': 'unit.measurement',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'type': 'ir.actions.act_window'
+        }
+        
+    @api.multi
+    def add_units_measurements(self):
+        """Method in charge of displaying a form to record a unit of measure 
+        associated with the physical magnitude
+
+        Returns:
+            dict: Dictionary with the values to visualize the data
+        """
+        return {
+            'name': 'Add unit of measurement',
+            'view_type': 'form',
+            'res_model': 'unit.measurement',
+            'view_id': False,
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window'
+        }
+    
                 
     @api.model
     def _get_default_icon_value(self):

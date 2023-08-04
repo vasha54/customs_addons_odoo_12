@@ -46,7 +46,7 @@ class UnitMeasurment(models.Model):
         associated with the same physical magnitude.
         """
         entity_um = self.env['unit.measurement']
-        if self.main_magnitude and entity_um:
+        if self.main_magnitude:
             units = entity_um.search(
                 [
                     ('id', '!=', self.id),
